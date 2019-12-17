@@ -21,7 +21,17 @@
     		<div class="blurb">
         		<h1>Oppedijk.com</h1>
 				<p>Bekijk de pagina's over het maken van een polair diagram, of de B&G Hydra/H2000 informatie voor wedstrijdschepen en de Fastnet bus.</p>
-    		</div><!-- /.blurb -->
+    		<h1>Latest Posts</h1>
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt }}</p>
+    </li>
+  {% endfor %}
+</ul>
+			</div><!-- /.blurb -->
 		</div><!-- /.container -->
 		<footer>
     		<ul>
