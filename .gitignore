@@ -7,3 +7,6 @@
 /.vs/ProjectSettings.json
 /.vs/Oppedijk.github.io/v16/.suo
 /.vs/Oppedijk.github.io/config/applicationhost.config
+/_site
+/.vs/tasks.vs.json
+/Gemfile.lock

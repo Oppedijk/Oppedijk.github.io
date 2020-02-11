@@ -1,15 +1,16 @@
 ---
 layouts: page
-title: Create Polar Diagram
+title: Sailing
 ---
+
 # Sailing
 
 
 <ul>
-  {% for item in site.sailing %}
+  {% for p in site.sailing %}
     <li>
-      <h2>{{ item.title }}</h2>
-      <p>{{ item.content | markdownify }}</p>
+      <a href="{{ p.url }}"><h2>{{ p.title }}</h2></a>
+      <p>{{ p.content | markdownify }}</p>
     </li>
   {% endfor %}
 </ul>
