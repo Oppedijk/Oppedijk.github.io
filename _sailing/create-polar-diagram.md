@@ -1,4 +1,4 @@
-﻿---
+---
 layouts: page
 title: Create Polar Diagram
 ---
