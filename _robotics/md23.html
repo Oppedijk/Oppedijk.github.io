@@ -1,0 +1,198 @@
+---
+layout: page
+---
+
+<article class="page content-item">
+	<header>
+
+		<h1>MD23</h1>
+
+	</header>
+	<div>To use the Devantech MD23 (now called MD25) from the Arduino environment, create these files (this is all still experimental, so use at your own risk)</div>
+	<div>&nbsp;</div>
+	<div>Get all the info on creating a library <a href="http://arduino.cc/en/Hacking/LibraryTutorial" rel="nofollow">here</a>&nbsp;at the arduino site. To use this in your own code:</div>
+	<blockquote style="margin-right: 0px;">
+		<div>#include &lt;Wire.h&gt;</div>
+		<div>&nbsp;</div>
+		<div>MD23 md(0x58)</div>
+		<div>void setup()</div>
+		<div>{</div>
+		<div>&nbsp;&nbsp; md.refresh();</div>
+		<div>&nbsp;&nbsp;&nbsp;md.setMode(2);</div>
+		<div>}</div>
+		<div>&nbsp;</div>
+		<div>void loop()</div>
+		<div>{</div>
+		<div>&nbsp; md.move(140,128);</div>
+		<div>&nbsp; int bat = md.batteryVolts;</div>
+		<div>}</div>
+	</blockquote>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div><strong>MD23.h</strong></div>
+	<blockquote style="margin-right: 0px;" dir="ltr">
+		<div>
+			/*
+			<div>&nbsp; MD23.h - Library for Devantech MD23.</div>
+			<div>&nbsp; Created by Erik Oppedijk, November 1, 2009.</div>
+			<div>&nbsp; Released into the public domain.</div>
+			<div>*/</div>
+			<div>#ifndef MD23_h</div>
+			<div>#define MD23_h</div>
+		</div>
+		<div>
+			#include "WProgram.h"
+			<div>//#include &lt;Wire.h&gt;</div>
+		</div>
+		<div>
+			//#define md23Address 0x58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Address of the MD23
+			<div>#define softwareReg 0x0D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Byte to read the software version</div>
+			<div>#define speed1 0x00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Byte to send speed to first motor</div>
+			<div>#define speed2 0x01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Byte to send speed to second motor</div>
+			<div>#define cmdByte 0x10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Command byte</div>
+			<div>#define encoderOne 0x02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Byte to read motor encoder 1</div>
+			<div>#define encoderTwo 0x06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Byte to read motor encoder 2</div>
+			<div>#define voltRead 0x0A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Byte to read battery volts</div>
+			<div>#define modeByte 0x0F</div>
+		</div>
+		<div>
+			class MD23
+			<div>{</div>
+			<div>&nbsp; public:</div>
+			<div>&nbsp;&nbsp;&nbsp; MD23(int deviceid);</div>
+			<div>&nbsp;&nbsp;&nbsp; void refresh();</div>
+			<div>&nbsp;&nbsp;&nbsp; void move(int spd, int turn);</div>
+			<div>&nbsp;&nbsp;&nbsp; void setMode(int mode);</div>
+			<div>&nbsp;&nbsp;&nbsp; void encodeReset();&nbsp;</div>
+			<div>&nbsp;&nbsp;&nbsp; void stopMotor();</div>
+			<div>&nbsp;&nbsp;&nbsp; void rotateDegrees(int deg);</div>
+		</div>
+		<div>
+			&nbsp;&nbsp;&nbsp; long e1;
+			<div>&nbsp;&nbsp;&nbsp; long e2;</div>
+			<div>&nbsp;&nbsp;&nbsp; int batteryVolts;</div>
+			<div>&nbsp;&nbsp;&nbsp; int m1;</div>
+			<div>&nbsp;&nbsp;&nbsp; int m2;</div>
+			<div>&nbsp;&nbsp;&nbsp; int version;</div>
+			<div>&nbsp; private:</div>
+			<div>&nbsp;&nbsp;&nbsp; int md23Address;</div>
+			<div>&nbsp;&nbsp;&nbsp; int _mode;</div>
+			<div>};</div>
+		</div>
+		<div>
+			<div>#endif</div>
+		</div>
+		<div>&nbsp;</div>
+	</blockquote>
+	<div dir="ltr"><strong>MD23.cpp</strong></div>
+	<blockquote style="margin-right: 0px;" dir="ltr">
+		<div dir="ltr">
+			/*
+			<div>&nbsp; Morse.cpp - Library for Devantech MD23.</div>
+			<div>&nbsp; Created by Erik Oppedijk, November 1, 2009.</div>
+			<div>&nbsp; Released into the public domain.</div>
+			<div>*/</div>
+		</div>
+		<div dir="ltr">
+			#include "WProgram.h"
+			<div>#include "MD23.h"</div>
+			<div>#include &lt;Wire.h&gt;</div>
+		</div>
+		<div dir="ltr">
+			MD23::MD23(int deviceid)
+			<div>{</div>
+			<div>&nbsp;&nbsp; md23Address = deviceid;</div>
+			<div>&nbsp;&nbsp; Wire.begin();</div>
+			<div>&nbsp;&nbsp; //refresh();</div>
+			<div>&nbsp; &nbsp;</div>
+			<div>}</div>
+		</div>
+		<div dir="ltr">
+			void MD23::refresh()
+			<div>{</div>
+			<div>&nbsp;Wire.beginTransmission(md23Address);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Send byte to get a reading from encoder 1</div>
+			<div>&nbsp; Wire.send(encoderOne);</div>
+			<div>&nbsp; Wire.endTransmission();</div>
+			<div>&nbsp; &nbsp;</div>
+			<div>&nbsp; Wire.requestFrom(md23Address, 12);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Request 4 bytes from MD23</div>
+			<div>&nbsp; while(Wire.available() &lt; 12);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Wait for 4 bytes to arrive</div>
+			<div>&nbsp; long firstByte = Wire.receive();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Recieve 4 bytes highest byte first</div>
+			<div>&nbsp; long secondByte = Wire.receive();</div>
+			<div>&nbsp; long thirdByte = Wire.receive();</div>
+			<div>&nbsp; long fourthByte = Wire.receive();</div>
+			<div>&nbsp; &nbsp;</div>
+			<div>&nbsp; e1 = (firstByte &lt;&lt; 24) + (secondByte &lt;&lt; 16) + (thirdByte &lt;&lt; 8) + fourthByte;&nbsp; // Put them together</div>
+			<div>&nbsp; &nbsp;</div>
+			<div>&nbsp; firstByte = Wire.receive();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Get four bytes highest byte first</div>
+			<div>&nbsp; secondByte = Wire.receive();</div>
+			<div>&nbsp; thirdByte = Wire.receive();</div>
+			<div>&nbsp; fourthByte = Wire.receive();</div>
+			<div>&nbsp; &nbsp;</div>
+			<div>&nbsp; e2 = (firstByte &lt;&lt; 24) + (secondByte &lt;&lt; 16) + (thirdByte &lt;&lt; 8) + fourthByte;&nbsp; // Put them together</div>
+		</div>
+		<div dir="ltr">
+			&nbsp; batteryVolts = Wire.receive();
+			<div>&nbsp; m1 = Wire.receive();</div>
+			<div>&nbsp; m2 = Wire.receive();</div>
+			<div>&nbsp; version = Wire.receive();</div>
+			<div>&nbsp; &nbsp;</div>
+			<div>}</div>
+		</div>
+		<div dir="ltr">
+			<div>void MD23::setMode(int mode)</div>
+			<div>{</div>
+			<div>&nbsp; Wire.beginTransmission(md23Address);</div>
+			<div>&nbsp; Wire.send(modeByte);</div>
+			<div>&nbsp; Wire.send(mode);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Putting the value 0xF to set mode</div>
+			<div>&nbsp; Wire.endTransmission();</div>
+			<div>&nbsp; _mode = mode;</div>
+			<div>}</div>
+		</div>
+		<div dir="ltr">
+			void MD23::encodeReset(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // This function resets the encoder values to 0
+			<div>&nbsp; Wire.beginTransmission(md23Address);</div>
+			<div>&nbsp; Wire.send(cmdByte);</div>
+			<div>&nbsp; Wire.send(0x20);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Putting the value 0x20 to reset encoders</div>
+			<div>&nbsp; Wire.endTransmission();</div>
+			<div>}</div>
+		</div>
+		<div dir="ltr">
+			void MD23::stopMotor(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Function to stop motors
+			<div>&nbsp; Wire.beginTransmission(md23Address);</div>
+			<div>&nbsp; Wire.send(speed1);</div>
+			<div>&nbsp; Wire.send(128);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Sends a value of 128 to motor 2 this value stops the motor</div>
+			<div>&nbsp; Wire.endTransmission();</div>
+			<div>&nbsp;&nbsp;</div>
+			<div>}&nbsp;</div>
+		</div>
+		<div dir="ltr">
+			void MD23::move(int spd, int turn)
+			<div>{</div>
+			<div>&nbsp;&nbsp;&nbsp; Wire.beginTransmission(md23Address);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Drive motor 2 at speed value stored in x</div>
+			<div>&nbsp;&nbsp;&nbsp; Wire.send(speed1);</div>
+			<div>&nbsp;&nbsp;&nbsp; Wire.send(spd);</div>
+			<div>&nbsp;&nbsp;&nbsp; Wire.send(turn);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<div>&nbsp;&nbsp;&nbsp; Wire.endTransmission();</div>
+		</div>
+		<div dir="ltr">}</div>
+		<div dir="ltr">
+			void MD23::rotateDegrees(int deg)
+			<div>{</div>
+		</div>
+		<div dir="ltr">}</div>
+		<div dir="ltr">&nbsp;</div>
+	</blockquote>
+	<div dir="ltr"><strong>keywords.txt</strong></div>
+	<blockquote style="margin-right: 0px;" dir="ltr">
+		<div dir="ltr">
+			MD23&nbsp;KEYWORD1
+			<div>move&nbsp;KEYWORD2</div>
+			<div>stopMotor&nbsp;KEYWORD2</div>
+			<div>encodeReset&nbsp;KEYWORD2</div>
+			<div>setMode&nbsp;&nbsp;KEYWORD2</div>
+			<div>refresh&nbsp;&nbsp;KEYWORD2</div>
+		</div>
+	</blockquote><div class="orchard-layouts-root">
+
+	</div>
+</article>

@@ -2,11 +2,12 @@
 layout: post
 title: API Management DTAP lessons learned
 permalink: Blog/api-management-dtap-lessons-learned
+excerpt_separator: <!--more-->
 ---
 With API management we have seperate environments for Development, Test and Production.
 
 The best way to move an API from one environment to the other is through GIT at this moment.
-
+<!--more-->
 [https://docs.microsoft.com/nl-nl/azure/api-management/api-management-configuration-repository-git](https://docs.microsoft.com/nl-nl/azure/api-management/api-management-configuration-repository-git)
 
 ## Visualize differences
