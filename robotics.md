@@ -1,6 +1,6 @@
 ---
 layouts: page
-title: Sailing
+title: Robotics
 ---
 
 # Robotics

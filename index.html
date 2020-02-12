@@ -1,33 +1,20 @@
 ---
-title: Oppedijk.com
+title: Home
+layout: page
 ---
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Oppedijk.com</title>
-        <!-- link to main stylesheet -->
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
-    </head>
-    <body>
-        {% include nav.html %}
+<img width="760" height="190" src="http://blobs.oppedijk.com/media/Default/Images/osm_header_blog.png">
 
-        <div class="container">
-            <div class="blurb">
-                <h1>Oppedijk.com</h1>
-                <p>Bekijk de pagina's over het maken van een polair diagram, of de B&G Hydra/H2000 informatie voor wedstrijdschepen en de Fastnet bus.</p>
-                <h1>Latest Posts</h1>
+<p>Bekijk de pagina's over het maken van een polair diagram, of de B&G Hydra/H2000 informatie voor wedstrijdschepen en de Fastnet bus.</p>
 
-                <ul>
-                    {% for post in site.posts %}
-                    <li>
-                        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                        <p>{{ post.excerpt }}</p>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div><!-- /.blurb -->
-        </div><!-- /.container -->
 
-        {% include footer.html %}
-    </body>
-</html>
+<h1>Latest Posts</h1>
+
+<ul>
+    {% for post in site.posts %}
+    <li>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p>{{ post.excerpt }}</p>
+    </li>
+    {% endfor %}
+</ul>
+

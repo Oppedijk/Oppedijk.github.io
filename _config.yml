@@ -1,6 +1,15 @@
 repository: Oppedijk/Oppedijk.github.io
 encoding: utf-8
 
+title: Oppedijk.com
+email: bandg@oppedijk.com
+description: >- 
+  This is my personal site on Sailing, Robotics and Microsoft Technology.
+#baseurl: "" # the subpath of your site, e.g. /blog
+url: "www.oppedijk.com" # the base hostname & protocol for your site, e.g. http://example.com
+#twitter_username: jekyllrb
+github_username:  oppedijk
+
 # Build settings
 theme: minima
 plugins:
