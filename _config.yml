@@ -11,4 +11,8 @@ collections:
     output: true
   bandg:
     output: true
+  zeilen:
+    output: true
+  robotics:
+    output: true
 #    permalink: /sailing/:path/

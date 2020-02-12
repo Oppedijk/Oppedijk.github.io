@@ -3,7 +3,7 @@ layout: page
 title: Dynamixel AX12 and the Raspberry Pi
 ---
 
-# Dynamixel AX12 and the Raspberry Pi
+# Dynamixel AX12 and the Raspberry Pi 
 
 <span>Tags:</span> [robotics](/Tags/robotics), [RaspberryPi](/Tags/RaspberryPi), [Dynamixel](/Tags/Dynamixel)
 
