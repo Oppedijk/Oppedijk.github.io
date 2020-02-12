@@ -1,0 +1,81 @@
+---
+layout: page
+---
+<article class="page content-item">
+	<header>
+
+		<h1>Setup</h1>
+
+	</header>
+	<div>Calibration/setup document:</div>
+	<div><a href="../Media/Default/Downloads/H2000Settings.html">H2000Settings.docx</a></div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>Basic setup for a B&amp;G Hydra/Hercules System (good luck reading and understanding this)</div>
+	<div><a href="http://www.bandg.com/upload/BandG/Documents/Manuals/hercules_200004.pdf">http://www.bandg.com/upload/BandG/Documents/Manuals/hercules_200004.pdf</a></div>
+	<div><a href="http://www.bandg.com/upload/BandG/Documents/Manuals/hydra_200004.pdf">http://www.bandg.com/upload/BandG/Documents/Manuals/hydra_200004.pdf</a></div>
+	<div><a href="http://www.bandg.com/upload/BandG/Documents/Manuals/newh2000proc.pdf">http://www.bandg.com/upload/BandG/Documents/Manuals/newh2000proc.pdf</a>&nbsp;(S/N H374001 and higher)</div>
+	<h2><a name="TOC-H2000-Hydra-Basic-Setup"></a>H2000 Hydra Basic Setup</h2>
+	<div>DEPTH -&gt; DEPTH ==&gt; CALIBRATE -&gt; DATUM</div>
+	<div>SPEED -&gt; BOAT SPD ==&gt; CALIBRATE -&gt; MANL CAL -&gt; SINGLE&nbsp;(or use AUTO CAL)</div>
+	<div>WIND -&gt; MEAS W/A ==&gt; CALIBRATE -&gt;&nbsp;MHU ANGL&nbsp;&nbsp; (or sometimes&nbsp;APP W/A)</div>
+	<div>&nbsp;</div>
+	<div>NAVIGATE -&gt; COURSE&nbsp;&nbsp;==&gt; CALIBRATE -&gt; CAL VAL1 -&gt; HEADING NODE&nbsp;</div>
+	<div>NAVIGATE -&gt; D/R COURSE ==&gt; CALIBRATE -&gt; CAL VAL1 -&gt; HEADING NODE</div>
+	<div>(5, <strong>9,</strong> 15,16,17,18 or 96,97,...) heading node 9 is NMEA through Performance Processor instead of FFD</div>
+	<div>
+		<div><a href="http://primus.bandg.com/icrbg/BandG FAQs/H2000 FAQS/FAQ - How do I change the Heading Node.pdf">http://primus.bandg.com/icrbg/BandG%20FAQs/H2000 FAQS/FAQ - How do I change the Heading Node.pdf</a></div>
+	</div>
+	<div>The <a href="fastnet-node-numbers.html">node numbers </a>are entered base-10 (e.g. 96) but displayed base-16 (0x60)</div>
+	<div>&nbsp;</div>
+	<div>
+		<div>NAVIGATE -&gt; HEADING ==&gt; CALIBRATE -&gt; CAL VAL 1 -&gt; HEADING OFFSET</div>
+		<div>MOTOR -&gt; VOLTS ==&gt; CALIBRATE -&gt; CAL VAL 1</div>
+		&nbsp;
+	</div>
+	<div>For better wind data, enter the correction table found in the X35 tuning guide <a href="http://www.skilux.fi/Link.aspx?id=1009319">http://www.skilux.fi/Link.aspx?id=1009319</a></div>
+	<div>WIND -&gt; TRUE W/A ==&gt; CALBRATE -&gt; CORRECTION</div>
+	<div>WIND -&gt; TRUE W/S&nbsp;==&gt; CALBRATE -&gt; CORRECTION</div>
+	<div>&nbsp;</div>
+	<div>Further, change the DAMPING of some functions, depending on the wind conditions</div>
+	<h2><a name="TOC-H2000-Pilot-Setup"></a>H2000 Pilot Setup</h2>
+	<div>To enter setup, press both &lt; and &gt; next to COURSE (3rd row of buttons)</div>
+	<div>Enter all data (B TYPE=SAIL, H SRC=18, H OFF=0,DIP=2,DRIVE=A, S CAL=6.25,B LEN=12.0,B LAG=0.30,R GAN=2)</div>
+	<div>RUD P = rudder Port, RUD&nbsp;S = rudder Starboard, RUD M=mid and then select RUD T, this will determine the time from Port to Starboard</div>
+	<div>&nbsp;</div>
+	<div>Sea Trial: Do a compass SWING, make a slow 360, later test the system by changing&nbsp;the boat direction by 90 or 120 degrees and determine boat lag.</div>
+	<div>&nbsp;</div>
+	<div>During Sailing, select RESP and choose between ECON, NORMAL or DOWNWIND for more quicker response</div>
+	<div><a href="http://www.bandg.com/upload/BandG/Documents/Manuals/newhpilot.pdf">http://www.bandg.com/upload/BandG/Documents/Manuals/newhpilot.pdf</a></div>
+	<div><a href="http://www.bandg.com/upload/BandG/Documents/Div/hpilot.pdf">http://www.bandg.com/upload/BandG/Documents/Div/hpilot.pdf</a>&nbsp;(pre July 2004)</div>
+	<div><a href="http://primus.bandg.com/supportBG/documentDisplay.do?docType=1002&amp;contextId=356%3A0.0&amp;clusterName=PublicBandG&amp;docset=%2FTopics%2FH2000+FAQs&amp;linktosource=1&amp;responseId=135ccbe2cfd4f608%3A149d886%3A12fb717140c%3A-32fc&amp;groupId=14&amp;answerGroup=0&amp;score=-1&amp;page=http%3A%2F%2Fprimus.bandg.com%2Ficrbg%2FBandG%2520FAQs%2FH2000+FAQS%2FFAQ+-+Hydra+Pilot+Fault+Codes.pdf&amp;result=31&amp;excerpt=frequently+asked+questions+B%26amp%3BG+Customer+Support+Premier+Way+Abbey+Park+ROMSEY+SO51+9DH+Hydra+Pilot+Fault+Codes+%26quot%3BWhat+do+the+fault+codes+for+the+Hydra+Pilot+mean%3F%26quot%3B+Fault+Cause+Fault+Description+FAULT+100+Pilot+Uncommissioned+Rudder+not+commissioned+or+memor&amp;resultType=5003#http%253A%252F%252Fprimus.bandg.com%252Ficrbg%252FBandG%252520FAQs%252FH2000%2BFAQS%252FFAQ%2B-%2BHydra%2BPilot%2BFault%2BCodes.pdf">http://primus.bandg.com/icrbg/BandG%20FAQs/H2000 FAQS/FAQ - Hydra Pilot Fault Codes.pdf</a></div>
+	<h2><a name="TOC-H2000-Performance-Setup"></a>H2000 Performance Setup</h2>
+	<div>NAVIGATE -&gt; LEEWAY ==&gt; CALIBRATE -&gt;&nbsp;CAL VAL1&nbsp; = Factor K (between 8 and 10 on a fast yacht?)</div>
+	<div>PERFORMANCE -&gt; HEEL ==&gt; CALIBRATE -&gt; CAL VAL 1 -&gt; OFFSET</div>
+	<div>PERFORMANCE -&gt; TRIM ==&gt; CALIBRATE -&gt; CAL VAL 1 -&gt; OFFSET</div>
+	<div>&nbsp;</div>
+	<div>For entering your performance data, use a program like Deckman or Expedition, which will save you a lot of work.</div>
+	<div>&nbsp;</div>
+	<h2><a name="TOC-Other-Tips"></a>Other Tips</h2>
+	<div>Upgrade to the latest system EPROMs, check the versions:</div>
+	<div><a href="http://primus.bandg.com/icrbg/BandG FAQs/H2000 FAQS/FAQ - Obtaining Software Versions.pdf">http://primus.bandg.com/icrbg/BandG%20FAQs/H2000 FAQS/FAQ - Obtaining Software Versions.pdf</a></div>
+	<div>&nbsp;</div>
+	<div>Reset system</div>
+	<div><a href="http://primus.bandg.com/icrbg/BandG FAQs/H2000 FAQS/FAQ - Hydra-Herc -Reset Function.pdf">http://primus.bandg.com/icrbg/BandG%20FAQs/H2000%20FAQS/FAQ%20-%20Hydra-Herc%20-Reset%20Function.pdf</a></div>
+	<div>&nbsp;</div>
+	<div>FFD Quick Reference</div>
+	<div><a href="http://www.bandg.com/upload/BandG/Documents/Div/ffdquickreferenceguide.pdf">http://www.bandg.com/upload/BandG/Documents/Div/ffdquickreferenceguide.pdf</a></div>
+	<div>&nbsp;</div>
+	<div>Shutdown Alarm</div>
+	<div>press the ENTER key twice to silence the audible alarm.</div>
+	<div>&nbsp;</div>
+	<div>20/20 programming (temporary and fixed)</div>
+	<div>&nbsp;</div>
+	<div>Lock FFD</div>
+	<div>press ENTER and LIGHTS, to lock all except page key, again to lock all, again to unlock</div>
+	<div>&nbsp;</div>
+	<div>Change&nbsp;pages on FFD&nbsp;</div>
+	<div>See manual</div><div class="orchard-layouts-root">
+
+	</div>
+</article>

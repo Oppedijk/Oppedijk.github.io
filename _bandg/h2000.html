@@ -1,0 +1,97 @@
+---
+layout: page
+---
+<article class="page content-item">
+    <header>
+        
+
+<h1>H2000</h1> 
+
+
+    </header>
+    <div>Info on the maintenance of the H2000 system from B&amp;G (brookes and gatehouse)</div>
+<div>&nbsp;</div>
+<div>Introduced in: 2001?</div>
+<div>Update in 2005 (new H2 000), flash card, different PCB, extra NMEA input.</div>
+<div>&nbsp;</div>
+<div>I no longer have this hardware, but you can always contact me at <a href="mailto:bandg@oppedijk.com">bandg@oppedijk.com</a></div>
+<div></div>
+<div>Firmware files are available&nbsp;<a title="H2000 EPROMS" href="http://blobs.oppedijk.com/media/Default/BandG/B%26G_H2000_eProms.zip">here </a></div>
+<div>John Victorin provided the info on a H2000 <a title="H2000 Simulator" href="http://blobs.oppedijk.com/media/Default/BandG/B&amp;G SIM.pdf">hardware simulator</a>.</div>
+<div></div>
+<div>
+<div>FFD: 9.0 (previous versions include 8.4, <strong>8.3</strong>,&nbsp;8.1, supports above polar info through NMEA)</div>
+<div>Wind: 9.3 (previous versions 9.1, <strong>7.5</strong>)</div>
+<div>Depth:&nbsp;9.3 (previous version<strong> 7.6</strong>)</div>
+<div>Performance:&nbsp;7.7 ??? (previous versions: 7.5, <strong>7.2</strong>)</div>
+<div>20/20 unit: 3.0??? anyone have more info on this?</div>
+<div>Linear unit: ???</div>
+<div></div>
+<div>Possible bug in Wind 9.3: AWA heel correction wrong</div>
+<div>&nbsp;</div>
+<div>for more information on the fastnet bus used by B&amp;G go to the <a href="fastnet.html">fastnet </a>page</div>
+</div>
+<table class="sites-layout-hbox" cellspacing="0">
+<tbody>
+<tr>
+<td class="sites-layout-tile sites-tile-name-content-1">
+<div dir="ltr">
+<h2 style="text-align: left; display: block;"><a name="TOC-Hydra-hercules-unit"></a>Hydra/hercules unit</h2>
+<div style="text-align: left; display: block;">The Hydra and hercules units have 2 boards, one for WIND and one for DEPTH (only wind is shown in pictures), there are fuses on each board. Battery is a BR2325. Both boards have a seperate EPROM, the depth EPROM is smaller (27C256 ), the wind is a 27C512 EPROM. Difference between Hydra and Hercules is a different front casing.</div>
+<div style="text-align: left; display: block;">&nbsp;</div>
+<div style="text-align: left; display: block;"><strong>Changing the Hydra/Hercules wind and depth eprom</strong></div>
+<div style="text-align: left; display: block;">
+<div>This is not so hard, remove the cover from the connectors, remove the 4 screws that hold the top cover.</div>
+<div>Now you see the bottom of the Wind board, there are 4 white plastic washers, remove them from the 4 holders. slowly remove the depth board from these 4 holders, and flip it on the side with the flexible connector. This should be enough to change the EPROM, and access the battery. Remember the notch on the EPROM, place it in the same direction.</div>
+<div>&nbsp;</div>
+<div>For the Depth board, slowly move the depth board up (it also has a flexible connector) the 4 holders will come loose of the bottom of the housing. Replace the EPROM and assemble in the reverse order.</div>
+</div>
+<div style="text-align: left; display: block;">
+<div style="text-align: left; display: block;"><img width="375" height="500" alt="" src="http://blobs.oppedijk.com/media/Default/BandG/H2000_DepthBoard.jpg" /><img width="375" height="500" alt="" src="http://blobs.oppedijk.com/media/Default/BandG/H2000_WindBoard.jpg" /></div>
+</div>
+<h2 style="text-align: left; display: block;"><a name="TOC-Performance-Unit"></a></h2>
+<div style="text-align: left; margin-top: 5px; margin-right: auto; margin-bottom: 0px; display: block;">
+<h2 style="text-align: left; display: block;">Performance Unit</h2>
+</div>
+<div style="text-align: left; display: block;">The performance unit has an 27C512 EPROM, and a fuse. Battery is a BR2325. Changing the EPROM is very simple, see instructions from the wind board. Please note the notch on the EPROM.</div>
+<div style="text-align: left; display: block;"><img width="500" height="375" alt="" src="http://blobs.oppedijk.com/media/Default/BandG/H2000_PerformanceBoard.jpg" /></div>
+<h2 style="text-align: left; display: block;"><a name="TOC-FFD"></a>FFD</h2>
+<div style="text-align: left; display: block;">There are 2 types of Full Function Displays, the normal and the NMEA version. Not much difference between them. They have the same 27C512 EPROM with the same firmware.</div>
+<div style="text-align: left; display: block;">When you take an FFD or 20/20 apart, be careful when removing the snap ring on the frame...its easy to break it.,Then undue the screw on the connector to allow air in, then use a pair of dull knife blade to separate the frame with its rubber seal from the can.. its tight... also its very easy to snap off the mounting ears. Be careful of the orientation of the connector in the unit... you can re-connected it backwards...<br />Carefully remove the EPROM and replace it with the new one, be sure to insert in the same orientation (little notch to the center of the board)
+<div><br />when you reassemble, I use a very small amount of o-ring grease on the gasket and I bake the desiccant crystals bag in the unit at 150deg F for 1-2 hr in my oven to re-activate it.<br />its also a good time to change the memory keep-alive batteries in the units, I do it with power on to keep the memory safe.&nbsp;(Thanks to Tom)</div>
+<div><img width="500" height="375" alt="" src="http://blobs.oppedijk.com/media/Default/BandG/H2000_FFD.jpg" /></div>
+</div>
+<h2 style="text-align: left; display: block;">&nbsp;</h2>
+<h2 style="text-align: left; display: block;"><a name="TOC-Hydra-20-20-circuit-board"></a>Hydra 20/20 circuit board</h2>
+<div style="text-align: left; display: block;">Not much info on this one. Has an EPROM.</div>
+<div style="text-align: left; display: block;"><img width="543" height="335" alt="" src="http://blobs.oppedijk.com/media/Default/BandG/H2000_20_20.JPG" /></div>
+<div style="text-align: left; display: block;">&nbsp;</div>
+<div style="text-align: left; display: block;">&nbsp;</div>
+<h2 style="text-align: left; display: block;"><a name="TOC-Linear-Expansion-unit"></a><a href="h2000/Hydra_20_206fb5.html?attredirects=0" imageanchor="1"></a>Linear Expansion unit</h2>
+<div style="text-align: left; display: block;">No information or pictures&nbsp;</div>
+<div style="text-align: left; display: block;"></div>
+<div style="text-align: left; display: block;">
+<h2><strong>Polar Speed, VMG on the displays</strong></h2>
+<div>NMEA FFD should be at least version 9 to accept Polar Target Speed information from an NMEA source.</div>
+<div><a href="http://forum.seilpartner.no/index.php?tid=35" rel="nofollow">http://forum.seilpartner.no/index.php?tid=35</a></div>
+<div>$PBGTTBS - Polar Speed knots, Polar performance %&nbsp;<br />$PBGTLAY - Distance to Layline (Nm), Time to Layline (hhmmss) <br />$PBGTVMG - VMG upwind angle AWA&nbsp;(polar), upwind heading for best VMG (polar), downwind heading for best VMG (polar) <br />$PBGTSTR - Distance to Start Line (metres), Time to Start Line (hhmmss)</div>
+<div>&nbsp;</div>
+<div>$PBGTTBS,x.x,N,y.y* hh</div>
+<div><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>(appears in PERFORM - POL menu)</div>
+<div>$PBGTLAY,x.x,N,hhmmss*hh</div>
+<div><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>(appears in PERFORM - LAYLINE menu)</div>
+<div>$PBGTVMG,x.x,y.y,y.y, M,z.z,z.z,M*hh</div>
+<div><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>(appears in WIND - AWA and NAVIGATE&nbsp;- TARG)</div>
+<div>$PBGTSTR,x.x,M,hhmmss,X *hh</div>
+<div><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>(appears in WAYPOINT menu)</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table><div class="orchard-layouts-root">
+    
+
+
+</div>
+</article>

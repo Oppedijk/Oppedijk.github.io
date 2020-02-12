@@ -1,13 +1,13 @@
 ---
 layouts: page
-title: Sailing
+title: B and G
 ---
 
-# Sailing
+# B&G
 
 
 <ul>
-  {% for p in site.sailing %}
+  {% for p in site.bandg %}
     <li>
       <a href="{{ p.url }}">{{ p.title }}</a>
      

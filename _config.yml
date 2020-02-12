@@ -9,4 +9,6 @@ plugins:
 collections:
   sailing:
     output: true
+  bandg:
+    output: true
 #    permalink: /sailing/:path/

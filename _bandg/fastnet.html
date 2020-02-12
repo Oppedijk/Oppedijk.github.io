@@ -1,0 +1,101 @@
+---
+layout: page
+---
+<article class="page content-item">
+	<header>
+
+		<h1>B&amp;G Fastnet Bus information</h1>
+
+	</header>
+	<div>&nbsp; This is the general information on the bus used by B&amp;G (Brookes and Gatehouse) H2000 and H3000 systems (and probably also the H1000)</div>
+	<div>&nbsp;</div>
+	<h2><a name="TOC-Fastnet-cable"></a>Fastnet cable</h2>
+	<div>
+		<div>The system is terminated by a 100 ohm resistor at each end, total resistance when measured between White and Green should be 50 ohms</div>
+		<div>&nbsp;</div>
+		<div>The cable is using 4 strands and the screen on the H2000 and H3000 system.</div>
+	</div>
+	<div>RED&nbsp;&nbsp; &nbsp; = 12 Volts DC</div>
+	<div>BLACK =&nbsp;0 Volts</div>
+	<div>WHITE =&nbsp;Network Data +ve</div>
+	<div>GREEN =&nbsp;Network Data -ve&nbsp;&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>For H1000, a connector is used, front view of male connector:</div>
+	<div>1 = 12V</div>
+	<div>2 = Busy</div>
+	<div>3 = Fastnet-</div>
+	<div>4 = Fastnet+</div>
+	<div>5 = 0V<br /><img width="180" height="165" src="http://blobs.oppedijk.com/media/Default/BandG/fastnet2-connector.png" /></div>
+	<h2><a name="TOC-Fastnet-Bus-specifications"></a>Fastnet Bus specifications</h2>
+	<div>(Thanks to Tom Lafleur for all the information)<br />The bus is on a 28k8 speed, with odd parity and 2 stopbits<br />Green and White are the data lines, together with a 12V and a Ground signal.<br />&nbsp;</div>
+	<div>Data is sent on a system which looks a bit like CAN.</div>
+	<div><br />Complete layout of a Serial TTL to Fastnet <a href="../media/default/downloads/BGFastNet1.html" target="_blank">schematic</a>&nbsp;(thanks to Tom for all the work) also be aware to change the terminators on the network from 100 ohm to 120-180 ohm. This is to make different kinds of CAN receivers to work. total Resistance should be 60-90 ohm (instead of the normal 50 ohm)</div>
+	<div>&nbsp;</div>
+	<div>Basic layout of a data frame is this:</div>
+	<div><img width="658" height="73" alt="" src="../Media/Default/BandG/fastnetData.html" /></div>
+	<div>&nbsp;</div>
+	<div>TO &amp; FROM: list of source and destination <a href="fastnet-node-numbers.html">node</a> addresses</div>
+	<div>SIZE: size of data, without headers and checksums</div>
+	<div>COMMAND: list of all <a href="fastnet-commands.html">commands</a>, mostly 0x01 is used</div>
+	<div>HEADER CHECKSUM: this is 0x100 - the total of all the bytes in het header modulo 8 (or: header data modulo 8 + checksum&nbsp; = 0)</div>
+	<div>CHANNELNR: list of all the <a href="fastnet-channels.html">channels</a>&nbsp;being used</div>
+	<div>FORMAT: this is the format byte, determines decimal dot and format</div>
+	<div>DATA: mostly 2 or 4 bytes</div>
+	<div>FULL CHECKSUM: this is 0x100 minus all the bytes modulo 8 (or: all data modulo 8&nbsp;+ checksum = 0)</div>
+	<h2><a name="TOC-Fastnet-demo-decode"></a>Fastnet demo decode</h2>
+	<div>This is an example string recorded on the bus:<br />ff 05 14 01 e7&nbsp;&nbsp;&nbsp; 1d 61 00 58&nbsp;&nbsp;&nbsp;&nbsp;1c 51 01 df&nbsp;&nbsp;&nbsp;87 06 00 be e8 e8&nbsp;&nbsp;86 06 00 be e8 e8 a8</div>
+	<div>&nbsp;</div>
+	<div><strong>split it into header and checksum parts:</strong></div>
+	<div><span style="background-color: #ff9900;">ff 05 14 01</span> <span style="background-color: #ffff00;">e7</span>&nbsp;&nbsp;&nbsp; 1d 61 00 58&nbsp;&nbsp;&nbsp;&nbsp;1c 51 01 df&nbsp;&nbsp;&nbsp;87 06 00 be e8 e8&nbsp;&nbsp;86 06 00 be e8 e8 <span style="background-color: #ffff00;">a8</span></div>
+	<div>ff = broadcast to all</div>
+	<div>05 = from wind/depth</div>
+	<div>14 = data in body part, 14hex = 20 dec = 20 databytes</div>
+	<div>01 = fastnet command, general data send</div>
+	<div>e7 = checksum header (header data modulo 8 + checksum&nbsp; = 0)</div>
+	<div>a8 = full frame checksum(all data modulo 8&nbsp;+ checksum = 0)</div>
+	<div>&nbsp;</div>
+	<div><strong>decode body parts</strong></div>
+	<div>the first byte is the channel, the second is a mask to display the data? the rest is data<br />ff 05 14 01 e7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; header<br />&nbsp;<span style="background-color: #ff9900;">1d</span> <span style="background-color: #ffff00;">61</span> <span style="background-color: #00ffff;">00 58</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1d = air temp C, format = 61, data = 0058 hex&nbsp; ==&nbsp; 88dec&nbsp; ==&nbsp; 88/10 =&nbsp; 8.8 degrees celsius<br />&nbsp;<span style="background-color: #ff9900;">1c</span> <span style="background-color: #ffff00;">51</span> <span style="background-color: #00ffff;">01 df</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1c = air temp F, format = 51, data =&nbsp; 01df hex&nbsp; == 479dec&nbsp; == 479/10 = 47.9 degrees fahrenheit (= 8.8 degrees celsius)<br />&nbsp;<span style="background-color: #ff9900;">87</span> <span style="background-color: #ffff00;">06</span> <span style="background-color: #00ffff;">00 be e8 e8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 87 = barometric pressure, format = 06, raw data is&nbsp;4 letters, value " Off"<br />&nbsp;<span style="background-color: #ff9900;">86</span> <span style="background-color: #ffff00;">06</span> <span style="background-color: #00ffff;">00 be e8 e8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 86 = barometric pressure trend, format = 06, raw data is 4 letters, value " Off"<br />a8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; checksum</div>
+	<div><strong>more examples</strong></div>
+	<div>41 91 02 71&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 41 = Boatspeed, format = 91, data = 0271 hex = 625 decimal =&nbsp; 625/100 = 6.25 knots</div>
+	<div>4d 61 00 04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4d = AWS knots, format = 61, &nbsp;0004 hex = 4 dec&nbsp; = 04 knots<br />&nbsp;4f 61 00 02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4f&nbsp; = AWS m/s,&nbsp;&nbsp;&nbsp;format = 61,&nbsp; 0002 hex = 2 dec&nbsp; =&nbsp; 02 m/s (= 4 knots)</div>
+	<div>&nbsp;</div>
+	<div><strong>format byte</strong></div>
+	<div>the format byte (e.g. 61) is a bit pattern, so transform this hex value to binary 61HEX = 01 10 00 01</div>
+	<div>divide the binary value in this format ZZ YY XXXX</div>
+	<div>ZZ = 01</div>
+	<div>YY = 10</div>
+	<div>XXXX = 0001</div>
+	<div>&nbsp;</div>
+	<div>The ZZ value is the divider (or the place of the decimal point)</div>
+	<div>00 = xxxx</div>
+	<div>01 = xxx.x = divide by 10</div>
+	<div>10 = xx.xx =&nbsp;divide by 100</div>
+	<div>00 = x.xxx = divide by 1000</div>
+	<div>&nbsp;</div>
+	<div>the YY value is the number of leading zero's (or the total number of digits visible)</div>
+	<div>00 = xxxx</div>
+	<div>01 = xxx</div>
+	<div>10 = xx</div>
+	<div>11 = x</div>
+	<div>&nbsp;</div>
+	<div>The XXXX value is the formatter for different types of data (value, time, segment code for displaying text), check out the <a href="../media/default/downloads/BG_Commands.html">excel sheet</a></div>
+	<div>0000 =</div>
+	<div>0001 = normal value in the next 2 bytes</div>
+	<div>0010 =</div>
+	<div>0011 =</div>
+	<div>0100 =</div>
+	<div>0101 = xx:xx = timer</div>
+	<div>0110 =</div>
+	<div>0111 =</div>
+	<div>1000 =</div>
+	<div>1001 =</div>
+	<div>1010 =</div>
+	<div>1011 =</div>
+	<div>1100 =</div>
+	<div>1101 =</div>
+	<div>1110 =</div>
+	<div>1111 =</div><div class="orchard-layouts-root">
+
+	</div>
+</article>

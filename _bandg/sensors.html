@@ -1,0 +1,88 @@
+---
+layout: page
+---
+<article class="page content-item">
+	<header>
+
+		<h1>Sensors</h1>
+
+	</header>
+	<p>Information regarding the B and G (brookes and gatehouse) sensors for the H2000 and the H3000 systems.</p>
+	<h2><a name="TOC-213-MHU"></a>213 MHU</h2>
+	<p>This is the standard Masthead Unit for the BandG H2000 and H3000 systems, you can change/replace the bearings of the windvane and wind cups. The bearings are according to the English (imperial) system. Read this <a href="../Blog/b-and-g-wind-bearings-replacement.html">article</a>&nbsp;for info on the replacement of the 213 and 496 MHU.</p>
+	<p>Or in case of a hardware failure, remove the PCB:</p>
+	<div><a href="http://primus.bandg.com/icrbg/BandG FAQs/H2000 FAQS/FAQ - 213 MHU PCB Swap.pdf">http://primus.bandg.com/icrbg/BandG%20FAQs/H2000%20FAQS/FAQ%20-%20213%20MHU%20PCB%20Swap.pdf</a></div>
+	<div>&nbsp;</div>
+	<div>If you want to repair the PCB, read this:</div>
+	<div><a href="http://forums.sailinganarchy.com/index.php?s=96bab55e9f2a76b0eae6f02fa7219e77&amp;showtopic=110615">http://forums.sailinganarchy.com/index.php?s=96bab55e9f2a76b0eae6f02fa7219e77&amp;showtopic=110615</a></div>
+	<div>for some tips on replacing the FETS (BF256A)&nbsp;and recalibrating the unit</div>
+	<p>For the wiring and the connector read this document:</p>
+	<p><a href="http://primus.bandg.com/icrbg/BandG FAQs/H3000 FAQS/FAQ - H3000 MHU wiring and tests.pdf">http://primus.bandg.com/icrbg/BandG%20FAQs/H3000%20FAQS/FAQ%20-%20H3000%20MHU%20wiring%20and%20tests.pdf</a></p>
+	<h2><a name="TOC-Clinometer"></a>Clinometer</h2>
+	<p>The clinometer (690-00-004) used by B&amp;G seems to be linear in it's output, here is a table with some raw measurements:</p>
+	<table bordercolor="#888" style="border-width: 1px; border-color: #888888; border-collapse: collapse;" border="1" cellspacing="0">
+		<tbody>
+			<tr>
+				<td style="width: 60px; height: 19px;">&nbsp;H 44</td>
+				<td style="width: 60px; height: 19px;">2.17 volt&nbsp;</td>
+				<td style="width: 148px; height: 19px;">&nbsp;heel port&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="width: 60px; height: 20px;">&nbsp;0</td>
+				<td style="width: 60px; height: 20px;">3.15 volt&nbsp;</td>
+				<td style="width: 148px; height: 20px;">&nbsp;neutral (no heel)</td>
+			</tr>
+			<tr>
+				<td style="width: 60px; height: 16px;">&nbsp;19.5 H</td>
+				<td style="width: 60px; height: 16px;">3.55 volt</td>
+				<td style="width: 148px; height: 16px;">&nbsp;heel starboard</td>
+			</tr>
+			<tr>
+				<td style="width: 60px; height: 19px;">&nbsp;44.1 H</td>
+				<td style="width: 60px; height: 19px;">4.09 volt&nbsp;</td>
+				<td style="width: 148px; height: 19px;">&nbsp;heel starboard</td>
+			</tr>
+			<tr>
+				<td style="width: 60px; height: 19px;">&nbsp;51.0 H</td>
+				<td style="width: 60px; height: 19px;">4.24 volt</td>
+				<td style="width: 148px; height: 19px;">&nbsp;heel starboard</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>Maximum heel value displayed on the displays&nbsp;is around 60 degrees</p>
+	<p>The measured linear function seems to be:<br />heel angle = 46 * volts - 144.12 (with some offset on calibration)</p>
+	<p>So it seems like the heel angle covers 300 degrees of tilt (+/- 150 degrees), so the correct function seems to be:<br />heel angle = 46.154 * volts - 150</p>
+	<div>Trim&nbsp;should be the same. Using a clinometer improves the measurements to the Apparent Wind Angle (AWA)</div>
+	<div>&nbsp;</div>
+	<div>Building a custom Heel and Trim sensor is quite easy, use a sensor (e.g. Memsic MX2125) and an Arduino Atmega&nbsp;to process the pulses and output a voltage into the B&amp;G main processor. Should work with H3000 also. Cost about 50 euro for heel and trim (compared to 2x 800 euros for official B&amp;G)</div>
+	<div>The formula is: outValHeel = pulseX*0.056-116.43;</div>
+	<div>&nbsp;</div>
+	<div>For H3000, add a Capacitor for an RC filter.</div>
+	<h2><a name="TOC-Temperature-sensors"></a>Temperature sensors</h2>
+	<p>Sea temperature Part no: 224-00-065</p>
+	<p><a href="http://primus.bandg.com/icrbg/BandG FAQs/H2000 FAQS/FAQ - Sea Temp resistance.pdf">http://primus.bandg.com/icrbg/BandG%20FAQs/H2000%20FAQS/FAQ%20-%20Sea%20Temp%20resistance.pdf</a><br />Standard NTC 10K<br /><br /><br />Air temperature part no: 224-00-066</p>
+	<div>1,20 volt = -8,6 degrees C<br />2.00 volt =&nbsp; 2,6 degrees C<br />3.00 volt = 17,1 degrees C<br />3,25 volt = 20,5 degrees C<br />4.00 volt = 31,1 degrees C<br />5.00 volt = 45,3 degrees C</div>
+	<div>&nbsp;</div>
+	<div>This also seems like a standard NTC 10K temperature sensor connected to 6.5 volt, and a 11.6K? ohm resistor to ground.</div>
+	<div>&nbsp;</div>
+	<div>6.5 volt pin</div>
+	<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10K NTC</div>
+	<div>measurement pin</div>
+	<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11.6K&nbsp;resistor?</div>
+	<div>gnd pin</div>
+	<div>&nbsp;</div>
+	<h2><a name="TOC-Barometer-sensor"></a>Barometer sensor</h2>
+	<div>&nbsp;</div>
+	<div>Barometer part number: 690-00-007</div>
+	<div>&nbsp;</div>
+	<div>2,004&nbsp;volt =&nbsp; 909 mbar<br />2,100 volt =&nbsp; 918 mbar<br />2,504 volt =&nbsp; 938 mbar<br />3,001 volt =&nbsp; 967 mbar<br />3,503 volt =&nbsp;1002 mbar<br />4,010 volt =&nbsp;1034 mbar<br />4,504 volt =&nbsp;1066 mbar<br />5,001 volt =&nbsp;1099 mbar</div>
+	<div><br />&nbsp;</div>
+	<div>This is a linear line, approximate formula:</div>
+	<div>mbar = 63.025*&nbsp;volt + 781.85&nbsp;</div>
+	<div>volt = mbar/63.025 - 12.39</div>
+	<h2><a name="TOC-Depth-meter"></a>Depth meter</h2>
+	<div>Most of them are 170 kHz passive types, including the very old ones and should continue to work.</div>
+	<div>There should be a 0.5 to 5 ohm resistance between both pins.</div><div class="orchard-layouts-root">
+
+	</div>
+</article>
