@@ -23,7 +23,7 @@ Large differences could be due to windshear (direction or speed)
 
 The polar table is divided into 3 seperate section: Optimal upwind(beat), different angles in between, optimum downwind(run).
 
-![](http://blobs.oppedijk.com/media/Default/Sailing/polar_table.png)
+![](/media/Default/Sailing/polar_table.png)
 
 The optimal up & downwind are the most simple, for instance: 
 

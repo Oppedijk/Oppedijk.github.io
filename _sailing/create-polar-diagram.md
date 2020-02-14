@@ -30,7 +30,7 @@ Now it's time to start with our polar diagram, and there are 2 options:
 2.  Start from scratch (which is a lot of work)
 
 For describing how a polar diagram works, let's start from scratch. Now would be the time to start sailing and record a lot of windspeed, boatspeed, course and sail information. This is what the endresult should look like:
-![](http://blobs.oppedijk.com/media/Default/Sailing/PolarDiagram.jpg)
+![](/media/Default/Sailing/PolarDiagram.jpg)
    
 The above polar diagram and [polar table](polar-table.html) can be used during sailing. The diagram needs a software program on the PC to make sense. There is a course line in the above diagram, at 92 degrees, this is the current heading. At the course line we cross several lines which indicate the target speed at several windspeeds.
 
@@ -41,7 +41,7 @@ The blue line(second line from the inside) is the target speed(6.73 knot) for 
 
 Start by creating a new polar diagram, I'm going to use Stentec's WinGPS 5 Voyager for this, and the first info we need to enter is the length of the boat (for determining the maximum hull speed) and the maximum speed visible in the diagram (the above diagram was limited at 10 knots boat speed). 
 
-![](http://blobs.oppedijk.com/media/Default/Sailing/recorded_polar.jpg)
+![](/media/Default/Sailing/recorded_polar.jpg)
 
 
 
@@ -73,7 +73,7 @@ Do this for all the angles and the run vmg and beat vmg.
 
 
 
-![](http://blobs.oppedijk.com/media/Default/Sailing/Polar_editor.jpg)
+![](/media/Default/Sailing/Polar_editor.jpg)
 
 This was the first step, now sail at 6, 8, 12, 14, 16 and 20 knots and do the same again. Keep on tuning your polar diagram, because with changing conditions, doing a good run will be difficult. Press the "**Show in polar diagram**" button and select "show time-filtered recording values. Now fine tune all values until you end up with a screen like on the top of this page. If the wind is 11 knots, you'll have to change the 10 and the 12 knots values. Keep watching the polar diagram, and try to even out all values until the curves are right.
 

@@ -28,7 +28,7 @@ We need a 74LS241 connected this way:
 
 Also, the AX12 needs 9-12 Volt
 
-![](http://blobs.oppedijk.com/media/Default/Page/WP_000493.jpg)
+![](/media/Default/Page/WP_000493.jpg)
 
 ## Configuring the Raspberry Pi for serial
 
