@@ -1,7 +1,6 @@
 ---
 layout: post
 title: API Management DTAP lessons learned
-permalink: Blog/api-management-dtap-lessons-learned
 excerpt_separator: <!--more-->
 ---
 With API management we have seperate environments for Development, Test and Production.

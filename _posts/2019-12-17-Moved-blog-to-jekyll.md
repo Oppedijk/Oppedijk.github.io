@@ -1,9 +1,15 @@
 ---
 layout: post
 title: "Moved my blog to jekyll"
-date: 2019-12-17 20:26:00 -0000
-tags: Jekyll Orchard
+excerpt_separator: <!--more-->
 ---
+<img src="https://jekyllrb.com/img/jekyll-og.png" />
 Instead of upgrading my Orchard instances, I decided to move to Jekyll hosted on github pages.
 
 A cleanup of old content was done as well
+
+Some lessons learned:
+<!--more-->
+* Jekyll Collections only work when a page is linked to the URL, otherwise no content is generated.
+* UTF-8 encoding without BOM is needed
+* Windows Subsystem for Linux works like a charm for local development
