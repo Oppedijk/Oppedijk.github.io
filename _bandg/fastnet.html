@@ -1,12 +1,8 @@
 ---
 layout: page
+title: B&amp;G Fastnet Bus information
 ---
-<article class="page content-item">
-	<header>
 
-		<h1>B&amp;G Fastnet Bus information</h1>
-
-	</header>
 	<div>&nbsp; This is the general information on the bus used by B&amp;G (Brookes and Gatehouse) H2000 and H3000 systems (and probably also the H1000)</div>
 	<div>&nbsp;</div>
 	<h2><a name="TOC-Fastnet-cable"></a>Fastnet cable</h2>
@@ -29,10 +25,10 @@ layout: page
 	<h2><a name="TOC-Fastnet-Bus-specifications"></a>Fastnet Bus specifications</h2>
 	<div>(Thanks to Tom Lafleur for all the information)<br />The bus is on a 28k8 speed, with odd parity and 2 stopbits<br />Green and White are the data lines, together with a 12V and a Ground signal.<br />&nbsp;</div>
 	<div>Data is sent on a system which looks a bit like CAN.</div>
-	<div><br />Complete layout of a Serial TTL to Fastnet <a href="../media/default/downloads/BGFastNet1.html" target="_blank">schematic</a>&nbsp;(thanks to Tom for all the work) also be aware to change the terminators on the network from 100 ohm to 120-180 ohm. This is to make different kinds of CAN receivers to work. total Resistance should be 60-90 ohm (instead of the normal 50 ohm)</div>
+	<div><br />Complete layout of a Serial TTL to Fastnet <a href="/media/default/downloads/BGFastNet1.pdf" target="_blank">schematic</a>&nbsp;(thanks to Tom for all the work) also be aware to change the terminators on the network from 100 ohm to 120-180 ohm. This is to make different kinds of CAN receivers to work. total Resistance should be 60-90 ohm (instead of the normal 50 ohm)</div>
 	<div>&nbsp;</div>
 	<div>Basic layout of a data frame is this:</div>
-	<div><img width="658" height="73" alt="" src="../Media/Default/BandG/fastnetData.html" /></div>
+	<div><img width="658" height="73" alt="" src="/Media/Default/BandG/fastnetData.png" /></div>
 	<div>&nbsp;</div>
 	<div>TO &amp; FROM: list of source and destination <a href="fastnet-node-numbers.html">node</a> addresses</div>
 	<div>SIZE: size of data, without headers and checksums</div>
@@ -79,7 +75,7 @@ layout: page
 	<div>10 = xx</div>
 	<div>11 = x</div>
 	<div>&nbsp;</div>
-	<div>The XXXX value is the formatter for different types of data (value, time, segment code for displaying text), check out the <a href="../media/default/downloads/BG_Commands.html">excel sheet</a></div>
+	<div>The XXXX value is the formatter for different types of data (value, time, segment code for displaying text), check out the <a href="/media/default/downloads/BG_Commands.xls">excel sheet</a></div>
 	<div>0000 =</div>
 	<div>0001 = normal value in the next 2 bytes</div>
 	<div>0010 =</div>
@@ -95,7 +91,4 @@ layout: page
 	<div>1100 =</div>
 	<div>1101 =</div>
 	<div>1110 =</div>
-	<div>1111 =</div><div class="orchard-layouts-root">
-
-	</div>
-</article>
+	<div>1111 =</div>

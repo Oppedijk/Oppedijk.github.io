@@ -18,7 +18,7 @@ Replacement is quite easy, remove the MHU from the mast, and there is one screw 
 <img width="195" height="222" src="/media/Default/BandG/MHU/213mhu.png" />
 
 For the 213 MHU, take a look at the picture above, the screws to open the unit are marked by the red arrows.
-This is a <a href="/Media/Default/BandG/MHU/213_MHU_Parts_breakdown.html">pdf</a> with all the different parts and their numbers.
+This is a <a href="/Media/Default/BandG/MHU/213_MHU_Parts_breakdown.pdf">pdf</a> with all the different parts and their numbers.
 
 For the 496 unit, check out the pictures below (Thanks to JanW).
 <img width="450" height="338" src="/media/Default/BandG/MHU/mhu496_2.jpg" /> 
