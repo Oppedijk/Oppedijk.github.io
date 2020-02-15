@@ -1,15 +1,9 @@
 ---
 layout: page
+title: Phidgets RFID
 ---
-
-<article class="page content-item">
-    <header>
-
-        <h1>Phidgets RFID</h1>
-
-    </header>
     <p>To use the Phidgets RFID device with Robotics Developer Studio 2008, we first need to install the Phidgets drivers <a style="text-decoration: underline;" href="http://www.phidgets.com/downloads.php?os_id=1&amp;fw_id=1&amp;fw_file_id=1" rel="nofollow">Phidget 21 MSI</a>. (don't download the Robotics Studio drivers, there is no RFID support in there)</p>
-    <p>For the complete solution, download the&nbsp;<a href="../Media/Default/Downloads/PhidgetsRFID.html" target="_blank" rel="nofollow">PhidgetsRFID sample</a>&nbsp;file(run DssProjectMigration first to&nbsp;update all references).</p>
+    <p>For the complete solution, download the&nbsp;<a href="/Media/Default/Downloads/PhidgetsRFID.zip" target="_blank" rel="nofollow">PhidgetsRFID sample</a>&nbsp;file(run DssProjectMigration first to&nbsp;update all references).</p>
     <p>To start from scratch, create a new project and reference the Phidget21.NET.dll. Now we can attach the event handlers in the start event:</p>
 <pre>  <span>protected</span> <span>override</span> <span>void</span> Start()
         {
@@ -80,7 +74,4 @@ layout: page
         {
     <span>base</span>.SubscribeHelper(_subMgrPort, s.Body, s.ResponsePort);
         }
-</pre><div class="orchard-layouts-root">
-
-    </div>
-</article>
+</pre>

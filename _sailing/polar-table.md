@@ -53,7 +53,7 @@ what is VMG, Velocity Made Good, an indicator of your upwind performance. Don't 
 
 ## How do we create a polar
 
-Use this [Excel sheet](../Media/Default/Downloads/polairdiagram_en.html) to create a print version of your polar table.
+Use this [Excel sheet](/Media/Default/Downloads/polairdiagram_en.xlsx) to create a print version of your polar table.
 
 We can download some polars from here: [http://noordzeeclub.nl/rating/meetbrieven.php](http://noordzeeclub.nl/rating/meetbrieven.php), select a boottype, press "ZOEK".
 
