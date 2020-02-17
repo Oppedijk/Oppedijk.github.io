@@ -1,5 +1,5 @@
 ---
-layouts: page
+layout: page
 title:  Polar Table
 ---
 
