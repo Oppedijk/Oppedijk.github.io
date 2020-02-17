@@ -1,6 +1,6 @@
 ---
 layout: page
-title: MD23
+title: Use the Devantech MD23 from Arduino
 ---
 
 	<div>To use the Devantech MD23 (now called MD25) from the Arduino environment, create these files (this is all still experimental, so use at your own risk)</div>
@@ -25,7 +25,7 @@ title: MD23
 	<div>&nbsp;</div>
 	<div>&nbsp;</div>
 	<div><strong>MD23.h</strong></div>
-	<blockquote style="margin-right: 0px;" dir="ltr">
+	<blockquote style="margin-right: 0px;">
 		<div>
 			/*
 			<div>&nbsp; MD23.h - Library for Devantech MD23.</div>
@@ -79,21 +79,21 @@ title: MD23
 		</div>
 		<div>&nbsp;</div>
 	</blockquote>
-	<div dir="ltr"><strong>MD23.cpp</strong></div>
-	<blockquote style="margin-right: 0px;" dir="ltr">
-		<div dir="ltr">
+	<div><strong>MD23.cpp</strong></div>
+	<blockquote style="margin-right: 0px;">
+		<div>
 			/*
 			<div>&nbsp; Morse.cpp - Library for Devantech MD23.</div>
 			<div>&nbsp; Created by Erik Oppedijk, November 1, 2009.</div>
 			<div>&nbsp; Released into the public domain.</div>
 			<div>*/</div>
 		</div>
-		<div dir="ltr">
+		<div>
 			#include "WProgram.h"
 			<div>#include "MD23.h"</div>
 			<div>#include &lt;Wire.h&gt;</div>
 		</div>
-		<div dir="ltr">
+		<div>
 			MD23::MD23(int deviceid)
 			<div>{</div>
 			<div>&nbsp;&nbsp; md23Address = deviceid;</div>
@@ -102,7 +102,7 @@ title: MD23
 			<div>&nbsp; &nbsp;</div>
 			<div>}</div>
 		</div>
-		<div dir="ltr">
+		<div>
 			void MD23::refresh()
 			<div>{</div>
 			<div>&nbsp;Wire.beginTransmission(md23Address);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Send byte to get a reading from encoder 1</div>
@@ -125,7 +125,7 @@ title: MD23
 			<div>&nbsp; &nbsp;</div>
 			<div>&nbsp; e2 = (firstByte &lt;&lt; 24) + (secondByte &lt;&lt; 16) + (thirdByte &lt;&lt; 8) + fourthByte;&nbsp; // Put them together</div>
 		</div>
-		<div dir="ltr">
+		<div>
 			&nbsp; batteryVolts = Wire.receive();
 			<div>&nbsp; m1 = Wire.receive();</div>
 			<div>&nbsp; m2 = Wire.receive();</div>
@@ -133,7 +133,7 @@ title: MD23
 			<div>&nbsp; &nbsp;</div>
 			<div>}</div>
 		</div>
-		<div dir="ltr">
+		<div>
 			<div>void MD23::setMode(int mode)</div>
 			<div>{</div>
 			<div>&nbsp; Wire.beginTransmission(md23Address);</div>
@@ -143,7 +143,7 @@ title: MD23
 			<div>&nbsp; _mode = mode;</div>
 			<div>}</div>
 		</div>
-		<div dir="ltr">
+		<div>
 			void MD23::encodeReset(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // This function resets the encoder values to 0
 			<div>&nbsp; Wire.beginTransmission(md23Address);</div>
 			<div>&nbsp; Wire.send(cmdByte);</div>
@@ -151,7 +151,7 @@ title: MD23
 			<div>&nbsp; Wire.endTransmission();</div>
 			<div>}</div>
 		</div>
-		<div dir="ltr">
+		<div>
 			void MD23::stopMotor(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Function to stop motors
 			<div>&nbsp; Wire.beginTransmission(md23Address);</div>
 			<div>&nbsp; Wire.send(speed1);</div>
@@ -160,7 +160,7 @@ title: MD23
 			<div>&nbsp;&nbsp;</div>
 			<div>}&nbsp;</div>
 		</div>
-		<div dir="ltr">
+		<div>
 			void MD23::move(int spd, int turn)
 			<div>{</div>
 			<div>&nbsp;&nbsp;&nbsp; Wire.beginTransmission(md23Address);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Drive motor 2 at speed value stored in x</div>
@@ -169,17 +169,18 @@ title: MD23
 			<div>&nbsp;&nbsp;&nbsp; Wire.send(turn);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 			<div>&nbsp;&nbsp;&nbsp; Wire.endTransmission();</div>
 		</div>
-		<div dir="ltr">}</div>
-		<div dir="ltr">
+		<div>}</div>
+		<div>
 			void MD23::rotateDegrees(int deg)
 			<div>{</div>
 		</div>
-		<div dir="ltr">}</div>
-		<div dir="ltr">&nbsp;</div>
+		<div>}</div>
+		<div>&nbsp;</div>
 	</blockquote>
-	<div dir="ltr"><strong>keywords.txt</strong></div>
-	<blockquote style="margin-right: 0px;" dir="ltr">
-		<div dir="ltr">
+
+	<div><strong>keywords.txt</strong></div>
+	<blockquote style="margin-right: 0px;">
+		<div>
 			MD23&nbsp;KEYWORD1
 			<div>move&nbsp;KEYWORD2</div>
 			<div>stopMotor&nbsp;KEYWORD2</div>

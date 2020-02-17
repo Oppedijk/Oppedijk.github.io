@@ -3,11 +3,7 @@ layout: page
 title: Dynamixel AX12 and the Raspberry Pi
 ---
 
-# Dynamixel AX12 and the Raspberry Pi 
-
-<span>Tags:</span> [robotics](/Tags/robotics), [RaspberryPi](/Tags/RaspberryPi), [Dynamixel](/Tags/Dynamixel)
-
-    How to control Robotis Dynamixel AX-12 from a Raspberry Pi.
+How to control Robotis Dynamixel AX-12 from a Raspberry Pi.
 
 The first step is to wire everything up, we use port 4(5V) and 6(GND) for power port 8(TXD) and 10(RXD) for serial RX and TX, and port 12(GPIO 18) for controlling the half duplex communication. For this we need an 74LS241, take a look at the setup:
 

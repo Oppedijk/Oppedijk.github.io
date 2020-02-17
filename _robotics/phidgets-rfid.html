@@ -7,13 +7,13 @@ title: Phidgets RFID
     <p>To start from scratch, create a new project and reference the Phidget21.NET.dll. Now we can attach the event handlers in the start event:</p>
 <pre>  <span>protected</span> <span>override</span> <span>void</span> Start()
         {
-    <span>base</span>.Start();
-    <span>try</span>
+            <span>base</span>.Start();
+            <span>try</span>
             {
                 _state.Connected = <span>false</span>;
                 rfid = <span>new</span> RFID(); <span>//Declare an RFID object</span>
                 
-    <span>//initialize our Phidgets RFID reader and hook the event handlers</span>
+                <span>//initialize our Phidgets RFID reader and hook the event handlers</span>
                 rfid.Attach  += <span>new</span> AttachEventHandler(rfid_Attach);
                 rfid.Detach  += <span>new</span> DetachEventHandler(rfid_Detach);
                 rfid.Error   += <span>new</span> ErrorEventHandler(rfid_Error);
@@ -24,7 +24,7 @@ title: Phidgets RFID
 
                 LogInfo(LogGroups.Console,<span>"waiting for attachment..."</span>); 
             }
-    <span>catch</span> (PhidgetException ex)
+            <span>catch</span> (PhidgetException ex)
             {
                 LogError(<span>null</span>,ex.Description);
             }</pre>
@@ -39,7 +39,7 @@ title: Phidgets RFID
 <pre>        [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
     <span>public</span> <span>virtual</span> IEnumerator&lt;ITask&gt; TagChangedHandler(TagChanged t)
         {
-    <span>if</span> (_state.LastTag != t.Body.TagID)
+            <span>if</span> (_state.LastTag != t.Body.TagID)
             {
                 _state.LastTag = t.Body.TagID;
                 _state.LastDateTime = DateTime.Now;
@@ -49,29 +49,29 @@ title: Phidgets RFID
                 SendNotification&lt;TagChanged&gt;(_subMgrPort, t);
                 t.ResponsePort.Post(_state);
             }
-    <span>yield</span> <span>break</span>;
+            <span>yield</span> <span>break</span>;
         }</pre>
     <p>And to store the date we need a State clss</p>
 <pre>    [DataContract()]
     <span>public</span> <span>class</span> PhidgetsRFIDState
     {
         [DataMember()]
-    <span>public</span> <span>bool</span> Connected { get; set; }
+        <span>public</span> <span>bool</span> Connected { get; set; }
         [DataMember()]
-    <span>public</span> <span>string</span> SerialID { get; set; }
+        <span>public</span> <span>string</span> SerialID { get; set; }
         [DataMember()]
-    <span>public</span> <span>string</span> LastTag { get; set; }
+        <span>public</span> <span>string</span> LastTag { get; set; }
         [DataMember()]
-    <span>public</span> DateTime LastDateTime { get; set; }
+        <span>public</span> DateTime LastDateTime { get; set; }
     }</pre>
     <p>To let other service know that a Tag was read, we need a subscription manager, and a Subscribe method. In the TagChangedHandler the SendNotification is called to update all subscribers:</p>
-<pre>        [SubscriptionManagerPartner()]
+<pre>    [SubscriptionManagerPartner()]
     <span>private</span> SubscriptionManagerPort _subMgrPort = <span>new</span> SubscriptionManagerPort();
 
 
- [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
+    [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
     <span>public</span> <span>virtual</span> <span>void</span> SubscribeHandler(Subscribe s)
-        {
-    <span>base</span>.SubscribeHelper(_subMgrPort, s.Body, s.ResponsePort);
-        }
+    {
+        <span>base</span>.SubscribeHelper(_subMgrPort, s.Body, s.ResponsePort);
+    }
 </pre>
