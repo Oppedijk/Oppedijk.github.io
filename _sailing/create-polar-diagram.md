@@ -3,7 +3,6 @@ layout: page
 title: Create Polar Diagram
 ---
 
-# Create Polar Diagram 
 This is a howto, describing the process of creating a polar diagram for your sailing vessel. Most terms were new for me as well, so that's why I made this page as a reference. See also this [article](http://www.c34.org/faq-pages/faq-polar-diagram.html) for some more information. The reason we want a correct polar diagram is to determine the optimum boat speed and use this information to plan routes.
 
 To display a polar diagram, we can use [Polar Tables](polar-table.html) to determine the fastest angles and target boat speed.

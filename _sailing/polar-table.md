@@ -3,8 +3,6 @@ layout: page
 title:  Polar Table
 ---
 
-# Polar Table
-
 For a description of polar diagrams have a look at [Create a polar diagram](create-polar-diagram.html)
 
 ## What information is in a polar table and diagram
