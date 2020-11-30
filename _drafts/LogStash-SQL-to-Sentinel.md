@@ -12,6 +12,10 @@ This is a first experiment, so no production ready code:
 ``` 
 
 <!--more-->
+### What is LogStash
+LogStash is part of the Elastic/LogStash/Kibana (ELK), but is also usable as a standalone tool to copy data from almost any system to any other system.
+So we are not limited to using Elastic as the destination, but we will be using Microsoft Sentinel in this case.
+
 ### So what are we starting
 We'll start docker with some defaults and port forwarding to be able to reach the machine
 ```
@@ -32,14 +36,17 @@ Fire up the docker image (please check for newer versions)
  -d docker.elastic.co/logstash/logstash:7.10.0 
 ```
 
-And last, to modify the installed plugins, we add a custom shell to install the plugin
+And last, to modify the installed plugins, we add a custom shell to install the plugin (currently not installing the SQL plugin)
 ```
 sh -c "logstash-plugin install microsoft-logstash-output-azure-loganalytics ; /usr/local/bin/docker-entrypoint"
 ```
 
 ### The config file
 ```
-input { stdin { } }
+input { 
+    stdin { } 
+    # We need to add the SQL / JDBC plugin here
+}
 filter {
   dissect {
     mapping => {
