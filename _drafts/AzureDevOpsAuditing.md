@@ -24,5 +24,9 @@ AzureDevOpsAuditing
 | project ActorUPN, OperationName, Details, IpAddress, TimeGenerated
 ```
 
+### Resources
+More info on the AzureDevOpsAuditing table can be found here:
+[AzureDevOpsAuditing](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/azuredevopsauditing)
+
 ### Conclusion
 This is a nice solution to quickly get the insight into what is happening in your DevOps Environment.
