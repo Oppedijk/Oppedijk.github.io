@@ -7,7 +7,7 @@ excerpt_separator: <!--more-->
 ### Introduction
 (this post will be updated with new tips and tricks, and when changes happen on Azure DevOps Auditing and Sentinel integration)
 
-Azure DevOps streaming https://docs.microsoft.com/en-us/azure/devops/organizations/audit/auditing-streaming?view=azure-devops was recently introduced
+[Azure DevOps streaming](https://docs.microsoft.com/en-us/azure/devops/organizations/audit/auditing-streaming?view=azure-devops) was recently introduced.
 This allows you to directly get the Azure Audit logs into a SIEM solution like Azure Sentinel, without writing custom Powershell/Rest code.
 
 <!--more-->
