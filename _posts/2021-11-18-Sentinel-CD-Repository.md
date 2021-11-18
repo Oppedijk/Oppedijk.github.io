@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Microsoft Sentinel Repositories to push CI/CD changes to  Sentinel"
+title:  "Microsoft Sentinel Repositories to push CI/CD changes to Sentinel"
 excerpt_separator: <!--more-->
 ---
-With the latest announcement (november 8th, 2021) on Repository support in Microsoft Sentinel, we now have a supported workflow to enable Continoud Deployment integration from Azure DevOps or Github:
+With the latest announcement (november 8th, 2021) on Repository support in Microsoft Sentinel, we now have a supported workflow to enable Continoud Deployment integration from Azure DevOps or GitHub:
 https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/enable-continuous-deployment-natively-with-microsoft-sentinel/ba-p/2929413
 
 Out of the box the following content types are supported
@@ -18,9 +18,13 @@ Out of the box the following content types are supported
 
 <!--more-->
 
-### Templates
+### Example files
+More info will be added
 
 ### Watchlist
+We can deploy watchlists, but when we change a row, a duplicate will be created, the same for deleted items, the old value is kept in the watchlist. (Check the last modified version to detect these).
+We could modify the powershell file to first delete the old watchlist.
+
 For watchlist to be deployed, we need to tweak the 2 files in the `.sentinel` folder
 
 Add `Watchlist` to the `sentinel-deploy-{guid}` file
@@ -33,7 +37,7 @@ Add the following line to the ContentTypeMap in `sentinel-deploy.ps1`
     "Watchlist"=@("Microsoft.OperationalInsights/workspaces/providers/Watchlists");
 ```
 
-And finally add a `watchlist/mywatchlist.json' with some sample content:
+And finally add a `watchlist/mywatchlist.json` with some sample content:
 ```
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
