@@ -7,8 +7,8 @@ In this post we will have a look at managing Enterprise Apps and App Registratio
 What do we want to add:
  - Add Owner of the app
  - Add description about the app
-
 <!--more-->
+
 Work in progress:
 
 ### AZ CLI

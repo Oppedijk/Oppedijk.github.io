@@ -6,9 +6,7 @@ excerpt_separator: <!--more-->
 Just some random notes on Azure API management:
 
 Parse JWT in Azure API management policy:
-
-@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)
-
+`@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)`
 <!--more-->
 
 API management and mobile services

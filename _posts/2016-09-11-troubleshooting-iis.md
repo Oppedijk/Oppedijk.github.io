@@ -8,6 +8,7 @@ IIS has the option to require client certificates, but setting this up requires 
 ### The question
 The customer question was that during a security audit, the server returned no root certificates, and not a list of trusted certificates. Error: No client certificate CA names sent
 <!--more-->
+
 The command used: OpenSSL s_client -connect site.customer.com:443
 
 A certificate trust list needs to be enabled

@@ -14,9 +14,7 @@ Out of the box the following content types are supported
  - Playbooks
  - Workbooks
 
- But with some tweaks we can also deploy Sentinel Watchlist, with some issues regarding updating/deleting content
-
-<!--more-->
+ But with some tweaks we can also deploy Sentinel Watchlist, with some issues regarding updating/deleting content<!--more-->
 
 ### Example files
 More info will be added

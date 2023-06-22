@@ -10,8 +10,8 @@ This is a first experiment, so no production ready code:
 ```
  docker run --rm -it -p5044:5044 --env xpack.monitoring.enabled=false -v /mnt/c/Users/MyUserName/pipeline/:/usr/share/logstash/pipeline/ -d docker.elastic.co/logstash/logstash:7.10.0 sh -c "logstash-plugin install microsoft-logstash-output-azure-loganalytics ; /usr/local/bin/docker-entrypoint"
 ``` 
-
 <!--more-->
+
 ### What is LogStash
 LogStash is part of the Elastic/LogStash/Kibana (ELK), but is also usable as a standalone tool to copy data from almost any system to any other system.
 So we are not limited to using Elastic as the destination, but we will be using Microsoft Sentinel in this case.

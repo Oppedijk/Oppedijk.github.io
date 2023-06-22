@@ -7,9 +7,8 @@ An Azure AD administrator can give itself permission on all Azure Subscriptions.
 This can be seen on the IAM page of a subscription, where a *User Access Administrator* with scope *"/"* is found.
 
 A person can only clear this in the UI for himself, not for another user.
-By using the Azure CLI, we can remove this permission
+By using the Azure CLI, we can remove this permission<!--more-->
 
-<!--more-->
 ### Manual
 You can remove this by logging in as the affected user, going to the Azure Portal, Azure Active Directory.
 

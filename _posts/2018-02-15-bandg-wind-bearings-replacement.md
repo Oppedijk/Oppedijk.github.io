@@ -10,6 +10,7 @@ The official B & G bearings for the wind angle and wind speed are quite expensiv
 
 Type: SFR2-5ZZ 
 <!--more-->
+
 These should match the 213 and 496 Masthead units for Brookes and Gatehouse.
 
 B&G part numbers 213-10-004 and 213-10-038 (just google the part number SFR2-5ZZ for a local shop, or use amazon.com or for the Netherlands https://Neita.nl).

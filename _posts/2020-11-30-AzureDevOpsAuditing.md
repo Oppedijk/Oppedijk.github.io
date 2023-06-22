@@ -7,8 +7,8 @@ excerpt_separator: <!--more-->
 ### Introduction
 [Azure DevOps streaming](https://docs.microsoft.com/en-us/azure/devops/organizations/audit/auditing-streaming?view=azure-devops) was recently introduced.
 This allows you to directly get the Azure Audit logs into a SIEM solution like Azure Sentinel, without writing custom Powershell/Rest code.
-
 <!--more-->
+
 ### Setting up
 The setup is easy, create a new stream, select Azure sentinel and connect with the Azure Log Analytics workspace id and key and the data is streamed to the Log Analytics environment.
 

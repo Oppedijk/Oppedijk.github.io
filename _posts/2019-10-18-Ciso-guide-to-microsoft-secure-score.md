@@ -10,6 +10,7 @@ excerpt_separator: <!--more-->
 Microsoft offers a Scoring website for the IT Security status of it's cloud services called Secure Score.
 This Secure Score (https://security.microsoft.com/securescore) mentions all the steps to take to enhance security.
 <!--more-->
+
 ### Advantages
 Secure Score gives IT and CISO's an aim for enhancing security.
 
