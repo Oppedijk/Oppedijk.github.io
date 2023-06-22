@@ -23,8 +23,9 @@ Through Powershell or CLI you can also remove this as a Global Admin, with the U
 az role assignment delete --assignee "user@example.com" --role "User Access Administrator" --scope "/"
 Or AZ CLI:
 
- az role assignment delete --assignee user@example.com --role "User Access Administrator" --scope "/"
-Background info
+` az role assignment delete --assignee user@example.com --role "User Access Administrator" --scope "/"
+
+## Background info
 
 The User Access Administrator is a temporarily solution to gain access to the Azure Subscriptions which are tied to the same Azure Active Directory.
 
