@@ -9,23 +9,24 @@ This can be seen on the IAM page of a subscription, where a *User Access Adminis
 A person can only clear this in the UI for himself, not for another user.
 By using the Azure CLI, we can remove this permission
 
-## Manual
+<!--more-->
+### Manual
 You can remove this by logging in as the affected user, going to the Azure Portal, Azure Active Directory.
 
 Then select the Properties screen in the left menu. https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Properties
 
 The bottom Yes/No is for Access Management for Azure Resources, this will control the user access administrator.
 
-## Automated
+### Automated
 
 Through Powershell or CLI you can also remove this as a Global Admin, with the User Access Administrator role active(root level Azure Subscription access is required):
 
-az role assignment delete --assignee "user@example.com" --role "User Access Administrator" --scope "/"
+`az role assignment delete --assignee "user@example.com" --role "User Access Administrator" --scope "/"`
 Or AZ CLI:
 
-` az role assignment delete --assignee user@example.com --role "User Access Administrator" --scope "/"
+`az role assignment delete --assignee user@example.com --role "User Access Administrator" --scope "/"`
 
-## Background info
+### Background info
 
 The User Access Administrator is a temporarily solution to gain access to the Azure Subscriptions which are tied to the same Azure Active Directory.
 
