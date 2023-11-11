@@ -24,4 +24,6 @@ collections:
     output: true
   robotics:
     output: true
+  rccars:
+    output: true
 #    permalink: /sailing/:path/
