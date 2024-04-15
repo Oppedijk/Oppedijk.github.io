@@ -26,6 +26,6 @@ Use the following AZ CLI commands to enable the Defender for Sensors and the Azu
 
     az policy assignment create --name 'azure-pol-add-on-k8-2' --display-name 'azure pol add-on k8 - 2' --scope subscriptions/{subscription_guid} --policy a8eff44f-8c92-45c3-a3fb-9880802d67a7  --description 'Deploy Azure Policy Add-on to Azure Kubernetes Service clusters' --location eastus --mi-system-assigned
 
-    az policy assignment create --name 'azure-pol-add-on-k8-3' --display-name 'azure pol add-on k8 - 3' --scope subscriptions/{subscription_guid} --policy 0adc5395-9169-4b9b-8687-af838d69410a  --descrip
+    az policy assignment create --name 'azure-pol-add-on-k8-3' --display-name 'azure pol add-on k8 - 3' --scope subscriptions/{subscription_guid} --policy 0adc5395-9169-4b9b-8687-af838d69410a  --description 'Configure Azure Arc enabled Kubernetes clusters to install the Azure Policy extension'  --location eastus --mi-system-assigned
 
 
