@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Creating Graphs Tutorial for Microsoft Sentinel
+title: Visualizing a Graph in Microsoft Sentinel
 excerpt_separator: <!--more-->
 ---
-In this Tutorial we will have a look at creating a simple Graph and visualize it in Azure Sentinel
-https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/graph-visualization-of-external-teams-collaborations-in-azure/ba-p/1356847
-https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-graph-visualizations
+In this Tutorial we will have a look at creating a simple Graph and visualize it in Azure Sentinel.
 
+I started exploring this for an Advent of Code
 <!--more-->
+
 Start by creating a new Workbook in Azure Sentinel, and add a new query.
 The next step is to add some data
 
@@ -45,3 +45,9 @@ To display the node name, add the `Node Name` to the Node Format Settings (e.g. 
 
 The final result looks like this:
 <img src="/media/graph-workbook.png" />
+
+
+### related resources
+https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/graph-visualization-of-external-teams-collaborations-in-azure/ba-p/1356847
+https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-graph-visualizations
+
