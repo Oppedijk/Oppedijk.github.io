@@ -8,6 +8,9 @@ https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/graph-visualizati
 https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-graph-visualizations
 
 <!--more-->
+Start by creating a new Workbook in Azure Sentinel, and add a new query.
+The next step is to add some data
+
 ### example data
 The Graph needs a single table filled with Nodes and Links, we accomplish this with a union of these both tables.
 Be aware that the Column names might clash, so take care naming them
@@ -31,11 +34,14 @@ Nodes
 | union (Links)
 ```
 
-Add this query to a workbook, select `Graph` as visualization and enter the following values in the `Graph Settings`:
+Add this query to the workbook, select `Graph` as visualization and enter the following values in the `Graph Settings`:
 Layout settings
  - Node ID: Id
  - Source Id: Source
- - Destination Id: Destination
+ - Target Id: Destination
  - Initial Flow: Flow Vertical
 
 To display the node name, add the `Node Name` to the Node Format Settings (e.g. Select Left Content), to show the Node Name on the left side.
+
+The final result looks like this:
+<img src="/media/graph-workbook.png" />
