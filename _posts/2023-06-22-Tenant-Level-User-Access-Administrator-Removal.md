@@ -25,6 +25,14 @@ Or AZ CLI:
 
 `az role assignment delete --assignee user@example.com --role "User Access Administrator" --scope "/"`
 
+### How to detect in the log files
+
+There are 2 locations where this can be detected, on the Entra ID side, where in the Audit logs a record is made with of the Service `Azure RBAC (Elevated Access)` with the Category `AzureRBACRoleManagementElevateAccess`. The Activity Type is `User has elevated their access to User Access Administrator for their Azure Resources`
+
+The other location is on the Azure Side, look in the audit logs, but select `Directory Logs` (next to edit columns) instead of the default selected `Activity Logs`. An entry from the `Microsoft.Authorization` resource provider is there, with an operation name of `Assigns the caller to User Access Administrator role`
+
+(For both scenario's you need read permissions)
+
 ### Background info
 
 The User Access Administrator is a temporarily solution to gain access to the Azure Subscriptions which are tied to the same Azure Active Directory.
