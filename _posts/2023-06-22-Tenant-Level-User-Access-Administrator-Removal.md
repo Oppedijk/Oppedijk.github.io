@@ -25,13 +25,19 @@ Or AZ CLI:
 
 `az role assignment delete --assignee user@example.com --role "User Access Administrator" --scope "/"`
 
-### How to detect in the log files
+### How to detect this in the log files
 
 There are 2 locations where this can be detected, on the Entra ID side, where in the Audit logs a record is made with of the Service `Azure RBAC (Elevated Access)` with the Category `AzureRBACRoleManagementElevateAccess`. The Activity Type is `User has elevated their access to User Access Administrator for their Azure Resources`
 
 The other location is on the Azure Side, look in the audit logs, but select `Directory Logs` (next to edit columns) instead of the default selected `Activity Logs`. An entry from the `Microsoft.Authorization` resource provider is there, with an operation name of `Assigns the caller to User Access Administrator role`
 
 (For both scenario's you need read permissions)
+
+### A better solution
+
+The better solution is to use Privileged Identity Management(PIM), assign a group permission as User Access Administrator on a management group, and let people (maybe after an approval) gain membership to this group for a limited time.
+
+PIM will prevent permanent access to this role.
 
 ### Background info
 
